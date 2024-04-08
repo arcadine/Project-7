@@ -1,0 +1,68 @@
+h1 {
+    font-family: "Poppins", Arial, Helvetica, sans-serif;
+    font-weight: 600;
+    font-size: 40px;
+    text-align: center;
+}
+
+h2 {
+    font-family: "Poppins", Arial, Helvetica, sans-serif;
+    font-weight: 500;
+    font-size: 20px;
+    margin: 20px 0;
+    text-align: center;
+}
+
+.form-btn {
+    font-family: "Poppins", Arial, Helvetica, sans-serif;
+    font-weight: 500;
+    font-size: 18px;
+    background-color: #FFD7D7;
+    color: black;
+    width: 200px;
+    height: 30px;
+    border: none;
+}
+.form-btn:hover{
+    background-color:#877474;
+    color: white;
+}
+.form-btn:active{
+    background-color:#877474;
+    color: white;
+}
+
+.form-fld {
+    width: 350px;
+}
+
+.form-lbl {
+    font-family: "Poppins", Arial, Helvetica, sans-serif;
+    font-weight: 500;
+    font-size: 24px;
+}
+
+.lg-gm-btn {
+    font-family: "Poppins", Arial, Helvetica, sans-serif;
+    font-size: 30px;
+
+    color: black;
+    width: 303px;
+    height: 82px; 
+    padding: 0;
+    text-align: center;
+    border: none;
+    margin-top: 50px;
+}
+.lg-gm-btn:hover{
+    background-color:#877474;
+    color: white;
+}
+.lg-gm-btn:active{
+    background-color:#877474;
+    color: white;
+}
+
+.main-sec {
+    height: 85vh;
+}

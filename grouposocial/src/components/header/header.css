@@ -1,0 +1,10 @@
+.logged-out-nav {
+    padding: 0;
+    background-color: white;
+    border-bottom: 4px solid #25255d;
+}
+
+.logo {
+    padding: 0;
+    margin: 0;
+}
