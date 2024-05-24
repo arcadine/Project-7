@@ -1,3 +1,12 @@
+a {
+    font-family: "Poppins", Arial, Helvetica, sans-serif;
+    font-weight: 500;
+    color: black;
+}
+a:hover {
+    color: #25255d;
+}
+
 h1 {
     font-family: "Poppins", Arial, Helvetica, sans-serif;
     font-weight: 600;
@@ -9,8 +18,15 @@ h2 {
     font-family: "Poppins", Arial, Helvetica, sans-serif;
     font-weight: 500;
     font-size: 20px;
-    margin: 20px 0;
+    margin: 15px 0;
     text-align: center;
+}
+
+p {
+    font-family: "Poppins", Arial, Helvetica, sans-serif;
+    font-weight: 500;
+    color: black;
+    font-size: 16px;
 }
 
 .form-btn {
@@ -19,8 +35,7 @@ h2 {
     font-size: 18px;
     background-color: #FFD7D7;
     color: black;
-    width: 200px;
-    height: 30px;
+    padding: 10px 40px;
     border: none;
 }
 .form-btn:hover{
@@ -41,11 +56,16 @@ h2 {
     font-weight: 500;
     font-size: 24px;
 }
+.form-lbl-sm {
+    font-family: "Poppins", Arial, Helvetica, sans-serif;
+    font-weight: 500;
+    font-size: 18px;
+}
 
 .lg-gm-btn {
     font-family: "Poppins", Arial, Helvetica, sans-serif;
     font-size: 30px;
-
+    background-color: #FFD7D7;
     color: black;
     width: 303px;
     height: 82px; 
@@ -64,5 +84,9 @@ h2 {
 }
 
 .main-sec {
-    height: 85vh;
+    height: 80vh;
+}
+
+.page-content {
+    height: 100vh;
 }

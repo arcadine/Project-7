@@ -4,7 +4,7 @@ import Container from "react-bootstrap/Container";
 
 import Navbar from "react-bootstrap/Navbar";
 
-const Header = () => {
+export const Header = () => {
 	return (
 		<div>
 			<Navbar className="bg-body-tertiary logged-out-nav">

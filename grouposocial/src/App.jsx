@@ -1,26 +1,49 @@
+/* eslint-disable no-mixed-spaces-and-tabs */
+// eslint-disable-next-line no-unused-vars
+import React from 'react';
+import { useSelector } from 'react-redux';
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 import Header from './components/header/Header';
-import Home from './components/pages/home/Home';
-import Login from './components/pages/login/Login';
-import CreateAccount from './components/pages/createaccount/CreateAccount';
+import HeaderLoggedIn from './components/header-loggedin/HeaderLoggedIn';
+import Home from './pages/home/Home';
+import Login from './pages/login/Login';
+import Feed from './pages/feed/Feed';
+import NewPost from './pages/newPost/NewPost';
+import MyPosts from './pages/myPosts/MyPosts'
 import Footer from './components/footer/Footer';
+import FooterLoggedIn from './components/footer-loggedin/FooterLoggedIn';
 import { Routes, Route } from 'react-router-dom';
+import CreateAccount from './pages/createAccount/CreateAccount';
+import DeleteAccount from './pages/deleteaccount/DeleteAccount';
 
 function App() {
-	return (
-		<>
-			<div>
-				<Header />
-                <Routes>
-                    <Route path="/" element={<Home />}/>
-                    <Route path="/create-account" element={<CreateAccount />}/>
-                    <Route path="/log-in" element={<Login />}/>
-                </Routes>
-                <Footer />
-			</div>
-		</>
-	);
+  const isLoggedIn = useSelector(state => state.auth.isLoggedIn);
+  console.log('test', isLoggedIn);
+  return (
+    <>
+      <div className="page-content d-flex flex-column justify-content-between">
+        {isLoggedIn ? <HeaderLoggedIn /> : <Header />}
+        <Routes>
+          {isLoggedIn ? (
+            <>
+              <Route path="/" element={<Feed />} />
+              <Route path="/new-post" element={<NewPost />} />
+			  <Route path="/my-posts" element={<MyPosts />} />
+			  <Route path="/delete-account" element={<DeleteAccount />} />
+            </>
+          ) : (
+            <>
+              <Route path="/" element={<Home />} />
+              <Route path="/create-account" element={<CreateAccount />} />
+              <Route path="/log-in" element={<Login />} />
+            </>
+          )}
+        </Routes>
+        {isLoggedIn ? <FooterLoggedIn /> : <Footer />}
+      </div>
+    </>
+  );
 }
 
 export default App;

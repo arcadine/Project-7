@@ -1,0 +1,23 @@
+.footer-link {
+    color: white;
+    font-size: 16px;
+    padding: 0;
+    margin: 0;
+}
+.footer-link:hover {
+    color: #FFD7D7;
+}
+
+.footer-text {
+    color: white;
+    font-size: 16px;
+    padding: 0;
+    margin: 0;
+}
+
+.gm-footer {
+    background-color: #25255d;
+    padding: 10px 15px;
+    margin-top: auto;
+}
+
