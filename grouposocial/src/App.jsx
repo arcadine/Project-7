@@ -14,12 +14,12 @@ import MyPosts from './pages/myPosts/MyPosts'
 import Footer from './components/footer/Footer';
 import FooterLoggedIn from './components/footer-loggedin/FooterLoggedIn';
 import { Routes, Route } from 'react-router-dom';
-import CreateAccount from './pages/createAccount/CreateAccount';
 import DeleteAccount from './pages/deleteaccount/DeleteAccount';
+import CreateAccount from './pages/createaccount/CreateAccount';
 
 function App() {
   const isLoggedIn = useSelector(state => state.auth.isLoggedIn);
-  console.log('test', isLoggedIn);
+  //console.log('test', isLoggedIn);
   return (
     <>
       <div className="page-content d-flex flex-column justify-content-between">

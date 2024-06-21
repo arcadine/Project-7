@@ -13,10 +13,7 @@ const CreateAccount = () => {
 			<Container className="main-sec d-flex flex-column justify-content-center align-items-center">
 				<h1>Create Account</h1>
 
-				<h2>
-					Please use your work email to create your GroupoSocial
-					account.
-				</h2>
+				<h2>Please use your work email to create your GroupoSocial account.</h2>
 
 				<Form className="d-flex flex-column justify-content-center align-items-center">
 					<Form.Group className="form-fld mb-3" controlId="formBasicEmail">
@@ -44,6 +41,7 @@ const CreateAccount = () => {
 					<Button
 						onClick={function (e) {
 							e.preventDefault();
+							// Send captured email and password text to API
 							fetch("http://localhost:3000/api/auth/signup", {
 								method: "POST",
 								headers: {
@@ -54,9 +52,9 @@ const CreateAccount = () => {
 							}).then(async function (response) {
 									if (response.ok) {
 										alert("New user successfully created!");
+										// Automatically log in user once account is created using function in services file
 										const { userId, token, error } = await loginUser(email, password);
 										if(userId && token){
-											//todo: save to React Context or Redux store and navigate to new homepage
 											console.log("2");
 										}
 										else {

@@ -2,8 +2,13 @@ import "./newPost.css";
 import Container from "react-bootstrap/Container";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
+import { useState } from "react";
+import { useSelector } from "react-redux";
 
 const NewPost = () => {
+  const [postText, setPostText] = useState("");
+	const [postImage, setPostImage] = useState("");
+  const token = useSelector((state) => state.auth.token);
   return (
     <div className="d-flex flex-column justify-content-center align-items-center">
 			<Container className="main-sec mt-4 mb-4 d-flex flex-column justify-content-start align-items-center">
@@ -13,17 +18,52 @@ const NewPost = () => {
         <Form className="newPostForm">
           <Form.Group className="mb-3" controlId="newPostForm.ControlTextarea1">
             <Form.Label className="form-lbl-sm">What&apos;s on your mind?</Form.Label>
-            <Form.Control as="textarea" rows={3} />
+            <Form.Control 
+              onChange={function (e) {
+								setPostText(e.target.value);
+							}}
+              as="textarea" rows={3}
+            />
           </Form.Group>
 
           <Form.Group controlId="formFile" className="mb-3">
             <Form.Label className="form-lbl-sm">Select image file (optional)</Form.Label>
-            <Form.Control type="file" />
+            <Form.Control 
+              onChange={function (e) {
+								setPostImage(e.target.files[0]);
+							}}
+              type="file"
+            />
           </Form.Group>
 
           <div className="text-center">
-            <Button className="form-btn" 
-              type="submit">
+            <Button 
+              onClick={async function (e) {
+                e.preventDefault();
+                const formData = new FormData();
+                formData.append("content", postText);
+                formData.append("imageUrl", postImage);
+
+                fetch("http://localhost:3000/api/createPost", {
+                  method: "POST",
+                  headers: {
+                    "Authorization": `Bearer ${token}`
+                  },
+                  body: formData
+                }).then(async function (response) {
+                    if (response.ok) {
+                      alert("New post uploaded!");
+                    } else {
+                      throw new Error("New post not uploaded");
+                    }
+                  })
+                  .catch((error) =>
+                    alert("There was an error while uploading the new post", error)
+                  );
+              }}
+              className="form-btn" 
+              type="submit"
+            >
               Post
             </Button>
           </div>
