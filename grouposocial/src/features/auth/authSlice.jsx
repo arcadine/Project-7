@@ -11,8 +11,9 @@ const authSlice = createSlice({
   initialState,
   reducers: {
     loginSuccess(state, action) {
-      console.log('loginSuccess reached');
+      console.log('loginSuccess reached', action.payload);
       state.userId = action.payload.userId;
+      state.userEmail = action.payload.email;
       state.token = action.payload.token;
       state.isLoggedIn = true;
     },

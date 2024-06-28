@@ -25,7 +25,7 @@ app.use(express.static('images'));
 
 
 app.use('/api/auth', userRoutes);
-app.use('/api/auth', postRoutes);
+app.use('/api', postRoutes);
 // app.use('/api/', sauceRoutes);
 
 export default app;

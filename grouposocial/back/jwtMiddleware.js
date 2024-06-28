@@ -1,5 +1,5 @@
 import jwt from 'jsonwebtoken';
-import { secretKey } from './controllers/user';
+import { secretKey } from './controllers/user.js';
 import multer from 'multer';
 
 function verifyToken(req, res, next) {
@@ -13,7 +13,7 @@ function verifyToken(req, res, next) {
     console.log(token.split(" ")[1]);
     //verify the token
     const decoded = jwt.verify(token.split(" ")[1], secretKey);
-    
+    console.log(decoded);
     //attach the decoded user information to the request object
     req.user = decoded;
 

@@ -9,13 +9,14 @@ import HeaderLoggedIn from './components/header-loggedin/HeaderLoggedIn';
 import Home from './pages/home/Home';
 import Login from './pages/login/Login';
 import Feed from './pages/feed/Feed';
+import DeleteAccount from './pages/deleteAccount/DeleteAccount';
+import CreateAccount from './pages/createAccount/CreateAccount';
 import NewPost from './pages/newPost/NewPost';
 import MyPosts from './pages/myPosts/MyPosts'
 import Footer from './components/footer/Footer';
 import FooterLoggedIn from './components/footer-loggedin/FooterLoggedIn';
 import { Routes, Route } from 'react-router-dom';
-import DeleteAccount from './pages/deleteaccount/DeleteAccount';
-import CreateAccount from './pages/createaccount/CreateAccount';
+
 
 function App() {
   const isLoggedIn = useSelector(state => state.auth.isLoggedIn);

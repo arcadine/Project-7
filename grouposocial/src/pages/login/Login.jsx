@@ -52,7 +52,7 @@ const Login = () => {
 							e.preventDefault();
 							const { userId, token, error } = await loginUser(email, password);
 							if(userId && token){
-								dispatch(loginSuccess({ userId, token }));
+								dispatch(loginSuccess({ userId, email, token }));
 								navigate('/'); // Navigate to the new homepage
 								console.log("2");
 							}

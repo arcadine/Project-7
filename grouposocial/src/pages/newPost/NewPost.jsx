@@ -8,7 +8,7 @@ import { useSelector } from "react-redux";
 const NewPost = () => {
   const [postText, setPostText] = useState("");
 	const [postImage, setPostImage] = useState("");
-  const token = useSelector((state) => state.auth.token);
+  const {token, userEmail: email} = useSelector((state) => state.auth);
   return (
     <div className="d-flex flex-column justify-content-center align-items-center">
 			<Container className="main-sec mt-4 mb-4 d-flex flex-column justify-content-start align-items-center">
@@ -43,6 +43,7 @@ const NewPost = () => {
                 const formData = new FormData();
                 formData.append("content", postText);
                 formData.append("imageUrl", postImage);
+                formData.append("email", email);
 
                 fetch("http://localhost:3000/api/createPost", {
                   method: "POST",

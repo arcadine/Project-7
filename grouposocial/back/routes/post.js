@@ -3,9 +3,9 @@ import { createPost, getPosts, getMyPosts, updateReaders } from '../controllers/
 import verifyToken, { upload } from '../jwtMiddleware.js';
 
 const router = express.Router();
-router.post('/posts', verifyToken, upload.single('image'), createPost);
-router.get('/posts', verifyToken, getMyPosts);
-router.get('/posts', getPosts);
-router.put('/posts/:id/readers', updateReaders);
+router.post('/createPost', verifyToken, upload.single('imageUrl'), createPost);
+router.get('/getMyPosts', verifyToken, getMyPosts);
+router.get('/getPosts', getPosts);
+router.put('/updateReaders/:id/readers', updateReaders);
 
 export default router;

@@ -5,10 +5,14 @@ import Post from '../models/Post.js';
 
 // Create a new post
 export const createPost = async (req, res) => {
-  const { content, imageUrl } = req.body;
+  const { content, email } = req.body;
+  const { filename } = req.file;
+  const imageUrl = '//localhost:3000/images/' + filename;
+  console.log(imageUrl);
+  const post = await Post.create({ content, imageUrl, email });
   try {
-    // Create post in database using request body content
-    const post = await Post.create({ email: req.user.email, content, imageUrl });
+    // Create post in database using request body content    
+    console.log(post);
     return res.status(201).json(post);
   } catch (error) {
     return res.status(500).json({ message:  'Failed to create post' });

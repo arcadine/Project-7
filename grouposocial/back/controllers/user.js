@@ -3,10 +3,10 @@ import { Op } from 'sequelize';
 import User from '../models/User.js';
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
-import crypto from 'crypto';
 
 // Generate secret key for web token
-export const secretKey = crypto.randomBytes(32).toString('hex');
+// eslint-disable-next-line no-undef
+export const secretKey = process.env.SECRET_KEY;
 
 // Signup user controller
 export const signupUser = async (req, res, next) => {

@@ -12,7 +12,6 @@ const Post = sequelize.define('Post',
   email: {
     type: DataTypes.STRING(255),
     allowNull: false,
-    unique: true,
   },
   content: {
     type: DataTypes.TEXT,
