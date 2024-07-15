@@ -4,10 +4,15 @@ import Container from "react-bootstrap/Container";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import { loginUser } from "../../components/services";
+import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { loginSuccess } from '../../features/auth/authSlice';
 
 const CreateAccount = () => {
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
+	const dispatch = useDispatch();
+	const navigate = useNavigate();
 	return (
 		<div className="d-flex flex-column justify-content-center align-items-center">
 			<Container className="main-sec d-flex flex-column justify-content-center align-items-center">
@@ -55,6 +60,8 @@ const CreateAccount = () => {
 										// Automatically log in user once account is created using function in services file
 										const { userId, token, error } = await loginUser(email, password);
 										if(userId && token){
+											dispatch(loginSuccess({ userId, email, token }));
+											navigate('/'); // Navigate to the new homepage
 											console.log("2");
 										}
 										else {

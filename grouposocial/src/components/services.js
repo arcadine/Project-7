@@ -19,3 +19,28 @@ export function loginUser(email, password) {
 					{return {error};}
 				);
 }
+
+export async function fetchPosts(page, token) {
+    try {
+		const response = await fetch(`http://localhost:3000/api/getPosts?page=${page}`, 
+			{headers: {
+				"Authorization": `Bearer ${token}`
+		},});
+		const data = await response.json();
+	
+		if (!response.ok) {
+			throw new Error('Post request failed');
+		}
+	
+		return {
+			posts: data.posts,
+			totalPages: data.totalPages,
+		};
+	} catch (error) {
+		console.error(error);
+		return {
+			posts: [],
+			totalPages: 1,
+		};
+	}
+}

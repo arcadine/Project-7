@@ -42,7 +42,9 @@ const NewPost = () => {
                 e.preventDefault();
                 const formData = new FormData();
                 formData.append("content", postText);
-                formData.append("imageUrl", postImage);
+                if (postImage) {
+                  formData.append("imageUrl", postImage);
+                }
                 formData.append("email", email);
 
                 fetch("http://localhost:3000/api/createPost", {

@@ -20,7 +20,7 @@ import { Routes, Route } from 'react-router-dom';
 
 function App() {
   const isLoggedIn = useSelector(state => state.auth.isLoggedIn);
-  //console.log('test', isLoggedIn);
+  console.log('second test', isLoggedIn);
   return (
     <>
       <div className="page-content d-flex flex-column justify-content-between">

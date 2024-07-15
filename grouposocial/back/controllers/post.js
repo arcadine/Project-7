@@ -6,15 +6,26 @@ import Post from '../models/Post.js';
 // Create a new post
 export const createPost = async (req, res) => {
   const { content, email } = req.body;
-  const { filename } = req.file;
-  const imageUrl = '//localhost:3000/images/' + filename;
-  console.log(imageUrl);
-  const post = await Post.create({ content, imageUrl, email });
   try {
-    // Create post in database using request body content    
-    console.log(post);
-    return res.status(201).json(post);
+    let post;
+    if(!req.file)
+    {
+      post = await Post.create({ content, email } );
+      // Create post in database using request body content    
+      console.log(post);
+      return res.status(201).json(post);
+    }
+    else {
+      const { filename } = req.file;
+      const imageUrl = '//localhost:3000/images/' + filename;
+      console.log(imageUrl);
+      post = await Post.create({ content, imageUrl, email });
+      // Create post in database using request body content    
+      console.log(post);
+      return res.status(201).json(post);
+    }    
   } catch (error) {
+    console.log(error);
     return res.status(500).json({ message:  'Failed to create post' });
   }
 };
@@ -28,7 +39,11 @@ export const getMyPosts = async (req, res) => {
         email: req.user.email,
       },
     });
-    return res.status(200).json(posts);
+    const formattedPosts = posts.map(post => ({
+      ...post.toJSON(),
+      publishedDate: post.formattedDate,
+    }));
+    return res.status(200).json(formattedPosts);
   } catch (error) {
     return res.status(500).json({ message: 'Failed to fetch user posts' });
   }
@@ -37,9 +52,26 @@ export const getMyPosts = async (req, res) => {
 // Get all posts
 export const getPosts = async (req, res) => {
   try {
-    // Query database for all posts
-    const posts = await Post.findAll();
-    return res.status(200).json(posts);
+    const { page = 1, limit = 5 } = req.query;
+
+    const offset = (page - 1) * limit;
+    
+    // Query database for all posts with pagination support and in descending date order
+    const { count, rows: posts } = await Post.findAndCountAll({
+      order: [['publishedDate', 'DESC']],
+      limit: parseInt(limit, 10),
+      offset: parseInt(offset, 10),
+    });
+    const formattedPosts = posts.map(post => ({
+      ...post.toJSON(),
+      publishedDate: post.formattedDate,
+    }));
+    return res.status(200).json({
+      posts: formattedPosts,
+      totalPosts: count,
+      currentPage: parseInt(page, 10),
+      totalPages: Math.ceil(count / limit),
+    });
   } catch (error) {
     return res.status(500).json({ message:  'Failed to fetch posts' });
   }

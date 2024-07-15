@@ -1,0 +1,25 @@
+.post-container {
+    background-color: #F6F6F6;
+    border-radius: 10px;
+    width: 100%;
+    padding: 10px 15px;
+    margin-bottom: 30px;
+}
+.post-container:hover {
+    background-color: #D6D6D6;
+}
+
+.post-content {
+    width: 100%;
+}
+
+.post-info {
+    font-weight: 600;
+}
+
+#postText {
+    width: 90%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}

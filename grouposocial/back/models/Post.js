@@ -1,6 +1,7 @@
 // eslint-disable-next-line no-unused-vars
 import { Sequelize, DataTypes } from 'sequelize';
 import sequelize from '../database.js';
+import moment from 'moment';
 
 const Post = sequelize.define('Post', 
 {
@@ -31,7 +32,15 @@ const Post = sequelize.define('Post',
   }
 },
 {
-    timestamps: false
+    timestamps: false,
+    getterMethods: {
+      formattedDate() {
+        return moment(this.publishedDate).format('MM/DD/YYYY');
+      }
+    }
 });
+
+Post.sync().then(console.log("Posts were synced.")).catch((error) =>
+  console.log("There was an error while syncing posts", error));
 
 export default Post;
