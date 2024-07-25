@@ -50,14 +50,14 @@ const Login = () => {
 					<Button 
 						onClick={async (e) => {
 							e.preventDefault();
-							const { userId, token, error } = await loginUser(email, password);
+							const { userId, token, message } = await loginUser(email, password);
 							if(userId && token){
 								dispatch(loginSuccess({ userId, email, token }));
 								navigate('/'); // Navigate to the new homepage
 								console.log("2");
 							}
 							else {
-								alert("There was an error in the login process", error)
+								alert("There was an error in the login process", message);
 							}
 						}}
 						className="form-btn d-flex align-items-center justify-content-center" 

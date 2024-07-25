@@ -30,8 +30,8 @@ function App() {
             <>
               <Route path="/" element={<Feed />} />
               <Route path="/new-post" element={<NewPost />} />
-			  <Route path="/my-posts" element={<MyPosts />} />
-			  <Route path="/delete-account" element={<DeleteAccount />} />
+			        <Route path="/my-posts" element={<MyPosts />} />
+			        <Route path="/delete-account" element={<DeleteAccount />} />
             </>
           ) : (
             <>

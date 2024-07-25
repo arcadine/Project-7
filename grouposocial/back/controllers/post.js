@@ -33,19 +33,33 @@ export const createPost = async (req, res) => {
 // Get my posts
 export const getMyPosts = async (req, res) => {
   try {
-    // Query database to only fetch posts that current match user's email
-    const posts = await Post.findAll({
-      where: {
-        email: req.user.email,
-      },
+    const { page = 1, limit = 5, email } = req.query;
+    
+    if (!email) {
+      return res.status(400).json({ message: 'Email is required; user must log in' });
+    }
+
+    const offset = (page - 1) * limit;
+    
+    // Query database for all posts with pagination support and in descending date order
+    const { count, rows: posts } = await Post.findAndCountAll({
+      where: {email},
+      order: [['publishedDate', 'DESC']],
+      limit: parseInt(limit, 10),
+      offset: parseInt(offset, 10),
     });
     const formattedPosts = posts.map(post => ({
       ...post.toJSON(),
       publishedDate: post.formattedDate,
     }));
-    return res.status(200).json(formattedPosts);
+    return res.status(200).json({
+      posts: formattedPosts,
+      totalPosts: count,
+      currentPage: parseInt(page, 10),
+      totalPages: Math.ceil(count / limit),
+    });
   } catch (error) {
-    return res.status(500).json({ message: 'Failed to fetch user posts' });
+    return res.status(500).json({ message:  'Failed to fetch posts' });
   }
 };
   

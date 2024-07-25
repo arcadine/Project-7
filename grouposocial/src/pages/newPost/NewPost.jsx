@@ -4,10 +4,12 @@ import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import { useState } from "react";
 import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 const NewPost = () => {
   const [postText, setPostText] = useState("");
 	const [postImage, setPostImage] = useState("");
+  const navigate = useNavigate();
   const {token, userEmail: email} = useSelector((state) => state.auth);
   return (
     <div className="d-flex flex-column justify-content-center align-items-center">
@@ -56,6 +58,7 @@ const NewPost = () => {
                 }).then(async function (response) {
                     if (response.ok) {
                       alert("New post uploaded!");
+                      navigate('/'); // Navigate back to feed on post upload
                     } else {
                       throw new Error("New post not uploaded");
                     }
