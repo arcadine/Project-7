@@ -110,4 +110,20 @@ export const updateReaders = async (req, res) => {
     return res.status(500).json({ message:  'Failed to update readers' });
   }
 };
-  
+ 
+
+// Get individual post by ID
+export const getPostById = async (req, res) => {
+  try {
+    const { postId } = req.params;
+    const post = await Post.findByPk(postId);
+
+    if (!post) {
+      return res.status(404).json({ message: 'Post not found' });
+    }
+
+    return res.status(200).json({ post });
+  } catch (error) {
+    return res.status(500).json({ message: 'Failed to fetch post' });
+  }
+};

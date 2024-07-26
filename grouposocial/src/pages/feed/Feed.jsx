@@ -5,6 +5,7 @@ import Post from "../../components/post/Post";
 import { useEffect, useState } from "react";
 import { fetchPosts } from "../../components/services";
 import { useSelector } from "react-redux";
+import { useNavigate } from 'react-router-dom';
 
 const Feed = () => {
   const {token} = useSelector((state) => state.auth);
@@ -12,6 +13,7 @@ const Feed = () => {
   const [page, setPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
   const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
   const loadPosts = async () => {
     setLoading(true);
     const { posts: newPosts, totalPages: newTotalPages } = await fetchPosts(page, token);
@@ -36,13 +38,21 @@ const Feed = () => {
     }
   };
 
+  const handlePostClick = (postId) => {
+    navigate(`/posts/${postId}`);
+  };
+
   return (
     <div className="d-flex flex-column justify-content-center align-items-center">
       <Container className="mt-4 mb-4 d-flex flex-column justify-content-center align-items-center">
         <h1>Latest Posts</h1>
 
         <div id="postsArea">
-          {posts.map((p, i) => <Post key={i} post={p} />)}
+          {posts.map((p, i) => (
+            <div key={i} onClick={() => handlePostClick(p.id)} style={{ cursor: 'pointer' }}>
+              <Post post={p} showFullContent={false} />
+            </div>
+          ))}
         </div>
 
         {page < totalPages ? (

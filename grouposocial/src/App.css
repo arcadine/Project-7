@@ -5,7 +5,8 @@ a {
 }
 a:hover {
     color: #25255d;
-    filter: drop-shadow(5px 5px 10px #000000);
+    font-weight: 700;
+    filter: drop-shadow(5px 5px 10px #877474);
 }
 
 h1 {
@@ -90,4 +91,13 @@ p {
 
 .page-content {
     height: 100vh;
+}
+
+:not(.btn-check)+.btn:active {
+    background-color:#877474;
+    color: white;
+}
+
+.nav-link:hover {
+    color: #25255d;
 }

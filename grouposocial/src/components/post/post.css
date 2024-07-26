@@ -1,25 +1,42 @@
+.unread-banner {
+    font-weight: bold;
+    padding: 5px 15px 0px 15px;
+    background-color: #ffd7d7;
+    width: 100%;
+    border-radius: 10px 10px 0 0;
+}
+
 .post-container {
     background-color: #F6F6F6;
     border-radius: 10px;
     width: 100%;
-    padding: 10px 15px;
     margin-bottom: 30px;
 }
 .post-container:hover {
     background-color: #D6D6D6;
 }
 
-.post-content {
+.post-content-info {
     width: 100%;
+    padding: 10px 20px 0 20px;
+}
+
+.post-content-body {
+    width: 100%;
+    padding: 0 20px 0 20px;
 }
 
 .post-info {
     font-weight: 600;
 }
 
-#postText {
+.preview-content {
     width: 90%;
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
+}
+
+.full-content {
+    white-space: normal;
 }

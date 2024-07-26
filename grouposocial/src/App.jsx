@@ -16,6 +16,7 @@ import MyPosts from './pages/myPosts/MyPosts'
 import Footer from './components/footer/Footer';
 import FooterLoggedIn from './components/footer-loggedin/FooterLoggedIn';
 import { Routes, Route } from 'react-router-dom';
+import SinglePost from './pages/singlePost/SinglePost';
 
 
 function App() {
@@ -31,6 +32,7 @@ function App() {
               <Route path="/" element={<Feed />} />
               <Route path="/new-post" element={<NewPost />} />
 			        <Route path="/my-posts" element={<MyPosts />} />
+              <Route path="/posts/:postId" element={<SinglePost />} />
 			        <Route path="/delete-account" element={<DeleteAccount />} />
             </>
           ) : (

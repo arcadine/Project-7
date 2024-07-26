@@ -72,3 +72,23 @@ export async function fetchMyPosts(page, token, email) {
 		};
 	}
 }
+
+export async function fetchPostById(postId, token) {
+	try {
+		const response = await fetch(`http://localhost:3000/api/getPostById/${postId}`, {
+		headers: {
+			"Authorization": `Bearer ${token}` // Ensure token is passed if needed
+		},
+		});
+		const data = await response.json();
+  
+		if (!response.ok) {
+			throw new Error('Failed to fetch post');
+		}
+  
+		return data.post;
+	} catch (error) {
+		console.error(error);
+		return null;
+	}
+}
