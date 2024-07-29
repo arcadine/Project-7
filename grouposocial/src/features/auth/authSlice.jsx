@@ -18,15 +18,19 @@ const authSlice = createSlice({
       state.token = action.payload.token;
       state.isLoggedIn = true;
     },
+    setLastVisit(state, action) {
+      state.lastVisit = action.payload
+    },
     logout(state) {
       state.userId = null;
       state.userEmail = null;
       state.token = null;
       state.isLoggedIn = false;
+      state.lastVisit = null;
     },
   }
 });
 
-export const { loginSuccess, logout } = authSlice.actions;
+export const { loginSuccess, setLastVisit, logout } = authSlice.actions;
 
 export default authSlice.reducer;

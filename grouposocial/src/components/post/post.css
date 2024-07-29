@@ -1,9 +1,34 @@
-.unread-banner {
-    font-weight: bold;
-    padding: 5px 15px 0px 15px;
-    background-color: #ffd7d7;
-    width: 100%;
+/* Define the keyframes for background color transition */
+@keyframes fadeBackground {
+    from {
+      background-color: #ffd7d7;
+    }
+    to {
+      background-color: transparent;
+    }
+}
+  
+/* Apply the animation to the newPost id */
+#newPost {
+    animation: fadeBackground 6s ease forwards;
     border-radius: 10px 10px 0 0;
+
+}
+  
+/* Define the keyframes for text color transition */
+@keyframes fadeText {
+    from {
+        color: black;
+    }
+    to {
+        color: transparent;
+    }
+}
+  
+/* Apply the animation to the new-txt class */
+.new-txt {
+    animation: fadeText 6s ease forwards;
+    font-weight: bold;
 }
 
 .post-container {
@@ -19,11 +44,12 @@
 .post-content-info {
     width: 100%;
     padding: 10px 20px 0 20px;
+    flex-direction: row;
 }
 
 .post-content-body {
     width: 100%;
-    padding: 0 20px 0 20px;
+    padding: 5px 20px 5px 20px;
 }
 
 .post-info {
@@ -39,4 +65,10 @@
 
 .full-content {
     white-space: normal;
+}
+
+@media only screen and (max-width: 425px) {
+    .post-content-info {
+        flex-direction: column;
+    }
 }

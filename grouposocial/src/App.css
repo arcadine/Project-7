@@ -89,6 +89,27 @@ p {
     height: 80vh;
 }
 
+.md-gm-btn {
+    font-family: "Poppins", Arial, Helvetica, sans-serif;
+    font-size: 24px;
+    background-color: #FFD7D7;
+    color: black;
+    width: 250px;
+    height: 68px; 
+    padding: 0;
+    text-align: center;
+    border: none;
+    margin-top: 40px;
+}
+.md-gm-btn:hover{
+    background-color:#877474;
+    color: white;
+}
+.md-gm-btn:active{
+    background-color:#877474;
+    color: white;
+}
+
 .page-content {
     height: 100vh;
 }
@@ -100,4 +121,82 @@ p {
 
 .nav-link:hover {
     color: #25255d;
+}
+
+@media only screen and (max-width: 768px) {
+    h1 {
+        font-size: 36px;
+    }
+
+    h2 {
+        font-size: 18px;
+    }
+    
+    .form-btn {
+        font-size: 16px;
+        padding: 8px 36px;
+    }
+
+    .form-lbl {
+        font-size: 20px;
+    }
+
+    .form-lbl-sm {
+        font-size: 16px;
+    }
+
+    .lg-gm-btn {
+        font-size: 26px;
+        width: 250px;
+        height: 68px; 
+    }
+
+    .md-gm-btn {
+        font-size: 20px;
+        width: 220px;
+        height: 60px; 
+    }
+}
+
+@media only screen and (max-width: 425px) {
+    h1 {
+        font-size: 32px;
+    }
+
+    h2 {
+        font-size: 16px;
+    }
+
+    p {
+        font-size: 14px;
+    }
+
+    .form-fld {
+        width: 100%;
+    }
+    
+    .form-btn {
+        font-size: 14px;
+        padding: 6px 32px;
+    }
+
+    .form-lbl {
+        font-size: 16px;
+    }
+
+    .form-lbl-sm {
+        font-size: 14px;
+    }
+
+    .lg-gm-btn {
+        font-size: 22px;
+        width: 230px;
+        height: 62px; 
+    }
+
+    .md-gm-btn {
+        font-size: 18px;
+        width: 200px;
+        height: 54px; 
+    }
 }

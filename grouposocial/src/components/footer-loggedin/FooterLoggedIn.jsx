@@ -11,7 +11,7 @@ export const FooterLoggedIn = () => {
   
   return (
     <div className="gm-footer">
-        <Container className="d-flex justify-content-between align-items-center">
+        <Container className="footer-container d-flex justify-content-between align-items-center">
             <p className="footer-text">© CONNECT-E 2024</p>
             <a className="footer-link" href="#"
               onClick={
