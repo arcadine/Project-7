@@ -21,7 +21,7 @@ const Login = () => {
 
 				<h2>
 					Don&apos;t have an account? Create one{" "}
-					<a href="/create-account">here</a>.
+					<a href="/create-account" className="link-txt">here</a>.
 				</h2>
 
 				<Form className="d-flex flex-column justify-content-center align-items-center">
