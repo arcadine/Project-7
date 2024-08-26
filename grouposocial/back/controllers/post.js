@@ -42,6 +42,7 @@ export const getMyPosts = async (req, res) => {
     const offset = (page - 1) * limit;
     
     // Query database for all posts with pagination support and in descending date order
+    // max 5 posts per load
     const { count, rows: posts } = await Post.findAndCountAll({
       where: {email},
       order: [['publishedDate', 'DESC']],

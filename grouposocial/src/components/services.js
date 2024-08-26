@@ -1,3 +1,4 @@
+// service function to log in user
 export function loginUser(email, password) {
 	return fetch("http://localhost:3000/api/auth/login", {
 			method: "POST",
@@ -20,6 +21,7 @@ export function loginUser(email, password) {
 				);
 }
 
+// service function to get all posts with pagination support
 export async function fetchPosts(page, token) {
     try {
 		const response = await fetch(`http://localhost:3000/api/getPosts?page=${page}`, 
@@ -45,6 +47,7 @@ export async function fetchPosts(page, token) {
 	}
 }
 
+// service function to get current logged in user's posts
 export async function fetchMyPosts(page, token, email) {
     console.log('email in services: ', email);
 	try {
@@ -73,6 +76,7 @@ export async function fetchMyPosts(page, token, email) {
 	}
 }
 
+// service function to get a specific post by ID
 export async function fetchPostById(postId, token) {
 	try {
 		const response = await fetch(`http://localhost:3000/api/getPostById/${postId}`, {

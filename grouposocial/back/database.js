@@ -4,9 +4,6 @@ import dotenv from 'dotenv';
 // Load environment variables from .env file
 dotenv.config();
 
-//console.log(process.env.DB_NAME);
-//console.log(process.env.DB_PASSWORD);
-
 // Create a Sequelize instance with the provided configuration
 const sequelize = new Sequelize(
   // eslint-disable-next-line no-undef

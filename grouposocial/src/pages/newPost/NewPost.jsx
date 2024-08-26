@@ -48,7 +48,8 @@ const NewPost = () => {
                   formData.append("imageUrl", postImage);
                 }
                 formData.append("email", email);
-
+                
+                // pass form data to API
                 fetch("http://localhost:3000/api/createPost", {
                   method: "POST",
                   headers: {

@@ -32,7 +32,6 @@ const Feed = () => {
     // Store time of feed visit after posts load
     const currentVisit = new Date().toISOString();
     setTimeout(() => {dispatch(setLastVisit(currentVisit))}, 7000);
-    //localStorage.setItem('lastVisit', currentVisit);
   };
 
   //empty array means useEffect on mount; if no brackets it'll load every life cycle

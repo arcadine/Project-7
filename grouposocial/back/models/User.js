@@ -22,5 +22,5 @@ const User = sequelize.define('User', {
 });
 
 User.sync().then(console.log("Users were synced.")).catch((error) =>
-  console.log("There was an error while syncing posts", error));
+  console.log("There was an error while syncing users", error));
 export default User;

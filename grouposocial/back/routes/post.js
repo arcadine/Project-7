@@ -1,6 +1,6 @@
 import express from 'express';
 import { createPost, getPosts, getMyPosts, getPostById } from '../controllers/post.js';
-import verifyToken, { upload } from '../jwtMiddleware.js';
+import verifyToken, { upload } from '../middleware.js';
 
 const router = express.Router();
 router.post('/createPost', verifyToken, upload.single('imageUrl'), createPost);

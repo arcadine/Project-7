@@ -12,14 +12,13 @@ const SinglePost = () => {
   const { postId } = useParams();
   const [post, setPost] = useState(null);
 
-  //empty array means useEffect on mount; if no brackets it'll load every life cycle
   useEffect(() => {
     const loadPost = async() => {
         const postData = await fetchPostById(postId, token);
         setPost(postData);
     }
     loadPost();
-    console.log('single post test');
+    //console.log('single post test');
   }, [postId]);
 
   if(!post){
