@@ -9,7 +9,7 @@ import HeaderLoggedIn from './components/header-loggedin/HeaderLoggedIn';
 import Home from './pages/home/Home';
 import Login from './pages/login/Login';
 import Feed from './pages/feed/Feed';
-import DeleteAccount from './pages/deleteAccount copy/DeleteAccount';
+import DeleteAccount from './pages/deleteAccount/DeleteAccount';
 import CreateAccount from './pages/createAccount/CreateAccount';
 import NewPost from './pages/newPost/NewPost';
 import MyPosts from './pages/myPosts/MyPosts'
