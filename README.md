@@ -1,5 +1,8 @@
-Use MySQL Workbench to manage MySQL database required for backend. Instructional video on how to download and configure: https://www.youtube.com/watch?v=nng8hDbUpnc
-Please note this project uses a .env file for the database name, username, password, host address, and secret key (secret key used for JSON web token in user.js controller). Your version of the .env file should be created in the grouposocial\back directory. You will also have to create your own images folder in that same directory.
-Don't forget to install node modules for the backend as well.
+# OpenClassrooms Web Development Project 7 by Diego Jorge
+Project name: "Build a Full-Stack Solution"
 
-Use "npm run start" to start up front end, and use "npm run dev" for back end.
+# Project Objectives:
+"Send personalized content to a client. Manage a user session. Build a full-stack solution. Store data securely using SQL. Use the React framework for the front end."
+
+# Project Brief:
+https://s3-eu-west-1.amazonaws.com/course.oc-static.com/projects/Digital+Project+Manager/Group+Project/New+Version+-+Expression+of+Needs/Groupomania_Expression_Needs.pdf
