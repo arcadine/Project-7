@@ -6,3 +6,6 @@ Project name: "Build a Full-Stack Solution"
 
 # Project Brief:
 https://s3-eu-west-1.amazonaws.com/course.oc-static.com/projects/Digital+Project+Manager/Group+Project/New+Version+-+Expression+of+Needs/Groupomania_Expression_Needs.pdf
+
+# Project Presentation Video:
+https://drive.google.com/file/d/1KxGovz-Sbu3Zyvm_m6Cvnx1_FgOdhAG8/view?usp=drive_link
